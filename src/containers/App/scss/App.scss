@@ -1,0 +1,31 @@
+
+.app {
+  .brand {
+    color: #388E8E; // sgi teal
+  }
+}
+
+.colorOlive {
+  color: #808000;
+}
+
+.colorCrimson {
+  color: #DC143C;
+}
+
+.colorLightblue {
+  color: #BFEFFF;
+}
+
+.appContent {
+  padding-top: 56px;
+  // min-height: 100vh - 145px; // exclude the height of footer
+  position: relative;
+}
+
+.footer {
+  background: #388E8E;
+  margin-bottom: 0;
+  padding: 10px 0;
+  height: 145px;
+}
