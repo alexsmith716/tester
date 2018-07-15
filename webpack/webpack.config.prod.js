@@ -45,14 +45,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              // localIdentName: "[name]_[local]_[hash:base64:5]"
+              localIdentName: "[name]_[local]_[hash:base64:5]"
             }
           },
           {
@@ -61,6 +61,23 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
+            // options: {}
+          },
+        ]
+      },
+      {
+        test: /\.(css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: "[name]_[local]_[hash:base64:5]"
+            }
+          },
+          {
+            loader: 'postcss-loader',
             // options: {}
           },
         ]
