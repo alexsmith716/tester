@@ -4,6 +4,7 @@ const Content = () => {
 
   const styles = require('./scss/Content.scss');
   const duck = require('./img/duck.jpg');
+  const android = require('./img/android.svg');
 
   return (
 
@@ -76,7 +77,8 @@ const Content = () => {
         </div>
 
         <div className="row my-4 d-flex justify-content-center">
-          <img src={duck} />
+          <p><img src={duck} /></p>
+          <p><img src={android} /></p>
         </div>
 
     </div>

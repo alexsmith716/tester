@@ -16,6 +16,7 @@ module.exports = {
 
   entry: {
     main: [
+      // './src/assets/global.scss',
       './src/index.js',
     ],
     vendor: [
@@ -27,6 +28,8 @@ module.exports = {
 
   output: {
     filename: '[name].js',
+    path: path.resolve(rootPath, 'build/dist'),
+    publicPath: './',
   },
 
   module: {
@@ -49,7 +52,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: "[name]_[local]_[hash:base64:5]"
+              // localIdentName: "[name]_[local]_[hash:base64:5]"
             }
           },
           {
@@ -63,19 +66,48 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpeg|jpg|gif|svg)$/,
+        test: /\.(png|jpeg|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
-            // options: {}
+            options: {
+              name: '[name].[ext]',
+            }
           }
         ]
       },
       {
-        test: /\.(svg)$/,
-        loader: 'url-loader',
-        options: {}
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
       },
+      {
+        test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10240,
+          mimetype: 'application/font-woff',
+          name: '[name].[ext]',
+        }
+      }, 
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10240,
+          mimetype: 'application/octet-stream',
+          name: '[name].[ext]',
+        }
+      }, 
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
+      }, 
     ]
   },
 
@@ -84,10 +116,10 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        // sourceMap: true // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      // new OptimizeCSSAssetsPlugin({})
+    ],
   },
 
   resolve: {
