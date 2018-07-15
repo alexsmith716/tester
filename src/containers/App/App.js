@@ -25,7 +25,7 @@ export default class App extends Component {
                 <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="modal" data-target="#exampleModal">
+                <a className="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">
                   <span className="fa fa-fw fa-sign-in"></span>Modal</a>
               </li>
               <li className="nav-item">
